@@ -1,17 +1,61 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { handleLogin } from "../store/actionCreator";
+
+import logo from "../assets/logo-full.png";
+
 export default function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  const loginHandler = (event) => {
+    event.preventDefault();
+    dispatch(handleLogin(form))
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleChange = (event) => {
+    const { value, name } = event.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
   return (
     <>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-lg text-center">
-          <h1 className="text-2xl font-bold sm:text-3xl">Get started today!</h1>
+        <div className="flex justify-center">
+          <img alt="Welcome" src={logo} className="w-60" />
+        </div>
 
-          <p className="mt-4 text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
-            nulla eaque error neque ipsa culpa autem, at itaque nostrum!
+        <div className="mx-auto max-w-lg text-center mt-4">
+          <h1 className="text-2xl font-medium sm:text-2xl text-neutral-800">
+            Log in to your account
+          </h1>
+          <p className="mt-2 text-neutral-600 text-sm mx-4">
+            Don't have an account?{" "}
+            <a className="underline text-blue-600 font-medium" href="">
+              Sign up
+            </a>
           </p>
         </div>
 
-        <form action="" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
+        <form
+          className="mx-auto mb-0 mt-8 max-w-md space-y-4"
+          onSubmit={loginHandler}
+        >
           <div>
             <label htmlFor="email" className="sr-only">
               Email
@@ -20,14 +64,17 @@ export default function Login() {
             <div className="relative">
               <input
                 type="email"
-                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                className="w-full rounded-lg border border-neutral-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
               />
 
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-gray-400"
+                  className="h-4 w-4 text-neutral-400"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -51,14 +98,17 @@ export default function Login() {
             <div className="relative">
               <input
                 type="password"
-                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                className="w-full rounded-lg border border-neutral-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter password"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
               />
 
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-gray-400"
+                  className="h-4 w-4 text-neutral-400"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -80,17 +130,10 @@ export default function Login() {
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-gray-500">
-              No account?
-              <a className="underline" href="">
-                Sign up
-              </a>
-            </p>
-
+          <div className="flex items-center justify-center">
             <button
               type="submit"
-              className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+              className="w-full bg-red-600 px-5 py-3 text-sm font-medium text-white rounded-lg"
             >
               Sign in
             </button>

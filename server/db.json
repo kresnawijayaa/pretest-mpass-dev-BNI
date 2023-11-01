@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "kresna1@gmail.com",
+      "password": "0909"
+    },
+    {
+      "id": 2,
+      "email": "kresna2@gmail.com",
+      "password": "0909"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "email": "kresna1@gmail.com",
+      "location": "Jakarta",
+      "destination": "Bekasi",
+      "distance": "10.0 km",
+      "price": 2000
+    },
+    {
+      "email": "kresna1@gmail.com",
+      "location": {
+        "lat": -6.1803589,
+        "lng": 106.7837213
+      },
+      "destination": {
+        "lat": -6.241518999999999,
+        "lng": 106.7987725
+      },
+      "distance": "10.3 km",
+      "price": 35000,
+      "id": 2
+    }
+  ]
+}

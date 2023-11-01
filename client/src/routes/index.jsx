@@ -48,7 +48,7 @@ const router = createBrowserRouter([
     element: <AddressInput />,
   },
   {
-    path: "/fleet",
+    path: "/fleet/:orderId",
     element: <FleetTypeSelect />,
   },
   {

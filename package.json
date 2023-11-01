@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@reach/combobox": "^0.18.0",
+    "@react-google-maps/api": "^2.19.2",
+    "react-google-maps": "^9.4.5"
+  }
+}
