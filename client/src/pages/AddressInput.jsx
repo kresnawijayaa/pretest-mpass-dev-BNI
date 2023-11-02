@@ -91,21 +91,6 @@ function Map() {
     directions: null,
   });
 
-  const mapOptions = {
-    zoomControl: true, // Menampilkan kontrol zoom
-    fullscreenControl: false, // Menyembunyikan kontrol fullscreen
-    streetViewControl: false, // Menyembunyikan kontrol street view
-    mapTypeControl: false, // Menyembunyikan kontrol map type
-    scaleControl: false, // Menyembunyikan kontrol scale
-    rotateControl: false, // Menyembunyikan kontrol rotate
-    panControl: false, // Menyembunyikan kontrol pan
-  };
-
-  const handleSelected = (place, type) => {
-    const { lat, lng } = place;
-    setLocations((prev) => ({ ...prev, [type]: { lat, lng } }));
-  };
-
   useEffect(() => {
     if (locations.location && locations.destination) {
       const directionsService = new window.google.maps.DirectionsService();
@@ -117,7 +102,7 @@ function Map() {
         },
         (result, status) => {
           if (status === "OK") {
-            setLocations((prev) => ({ ...prev, directions: result })); // Store directions in state
+            setLocations((prev) => ({ ...prev, directions: result }));
             const distance = result.routes[0].legs[0].distance.text;
             console.log("Distance:", distance);
           } else {
@@ -127,6 +112,14 @@ function Map() {
       );
     }
   }, [locations.location, locations.destination]);
+
+  const handleSelected = (place, type, name) => {
+    const { lat, lng } = place;
+    setLocations((prev) => ({
+      ...prev,
+      [type]: { lat, lng, name },
+    }));
+  };
 
   return (
     <>
@@ -141,9 +134,9 @@ function Map() {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"
             />
           </svg>
@@ -257,7 +250,7 @@ const PlacesAutocomplete = ({ setSelected, placeholder }) => {
 
     const results = await getGeocode({ address });
     const { lat, lng } = await getLatLng(results[0]);
-    setSelected({ lat, lng });
+    setSelected({ lat, lng, name: address });
   };
 
   return (

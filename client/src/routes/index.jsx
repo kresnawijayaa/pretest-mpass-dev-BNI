@@ -52,15 +52,15 @@ const router = createBrowserRouter([
     element: <FleetTypeSelect />,
   },
   {
-    path: "/confirmation",
+    path: "/confirmation/:orderId",
     element: <BookingConfirmation />,
   },
   {
-    path: "/checkout",
+    path: "/checkout/:orderId",
     element: <Checkout />,
   },
   {
-    path: "/waiting",
+    path: "/waiting/:orderId",
     element: <WaitingForFleet />,
   },
   {

@@ -32,7 +32,95 @@
       },
       "distance": "10.3 km",
       "price": 35000,
-      "id": 2
+      "id": 2,
+      "fleetType": "redbird"
+    },
+    {
+      "email": "kresna1@gmail.com",
+      "location": {
+        "lat": -6.132975099999999,
+        "lng": 106.8266873
+      },
+      "destination": {
+        "lat": -6.2441792,
+        "lng": 106.783529
+      },
+      "distance": "18.3 km",
+      "price": 45000,
+      "id": 3
+    },
+    {
+      "email": "kresna1@gmail.com",
+      "location": {
+        "lat": -6.2255918,
+        "lng": 106.7993027
+      },
+      "destination": {
+        "lat": -6.1951904,
+        "lng": 106.8194119
+      },
+      "distance": "6.0 km",
+      "price": 25000,
+      "id": 4,
+      "fleetType": "redbirdPremium"
+    },
+    {
+      "email": "kresna1@gmail.com",
+      "location": {
+        "lat": -6.2083545,
+        "lng": 106.7963632
+      },
+      "destination": {
+        "lat": -6.2048039,
+        "lng": 106.825652
+      },
+      "distance": "6.0 km",
+      "price": 25000,
+      "id": 5
+    },
+    {
+      "email": "kresna1@gmail.com",
+      "location": {
+        "lat": -6.1753924,
+        "lng": 106.8271528
+      },
+      "destination": {
+        "lat": -6.2445432,
+        "lng": 106.8006869
+      },
+      "distance": "10.9 km",
+      "price": 35000,
+      "id": 6
+    },
+    {
+      "email": "kresna1@gmail.com",
+      "location": {
+        "lat": -6.145353000000001,
+        "lng": 106.8185752
+      },
+      "destination": {
+        "lat": -6.1753924,
+        "lng": 106.8271528
+      },
+      "distance": "5.9 km",
+      "price": 25000,
+      "id": 7,
+      "fleetType": "Redbird (Basic)"
+    },
+    {
+      "email": "kresna1@gmail.com",
+      "location": {
+        "lat": -6.144881199999999,
+        "lng": 106.813413
+      },
+      "destination": {
+        "lat": -6.2614927,
+        "lng": 106.8105998
+      },
+      "distance": "18.2 km",
+      "price": 45000,
+      "id": 8,
+      "fleetType": "Redbird Premium"
     }
   ]
 }
